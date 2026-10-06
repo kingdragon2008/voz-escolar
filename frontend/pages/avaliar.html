@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliação Confidencial | Voz Escolar</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .eval-container {
+      max-width: 800px;
+      margin: 2.5rem auto 4rem;
+    }
+    .eval-header-card {
+      background: white;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .eval-category-card {
+      background: white;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast);
+    }
+    .eval-category-card:hover {
+      border-color: var(--primary-300);
+    }
+    .category-title-flex {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .cat-icon-badge {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .star-rating-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+    }
+    .stars {
+      display: inline-flex;
+      flex-direction: row-reverse;
+      gap: 0.25rem;
+    }
+    .stars input {
+      display: none;
+    }
+    .stars label {
+      font-size: 2rem;
+      color: var(--slate-300);
+      cursor: pointer;
+      transition: color 150ms ease, transform 150ms ease;
+    }
+    .stars label:hover,
+    .stars label:hover ~ label,
+    .stars input:checked ~ label {
+      color: #f59e0b;
+    }
+    .stars label:hover {
+      transform: scale(1.15);
+    }
+    .score-hint {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--slate-600);
+    }
+    .comment-area {
+      width: 100%;
+      border: 1px solid var(--slate-300);
+      border-radius: var(--radius-md);
+      padding: 0.85rem;
+      font-size: 0.95rem;
+      color: var(--slate-800);
+      resize: vertical;
+      min-height: 85px;
+      outline: none;
+      transition: border-color var(--transition-fast);
+    }
+    .comment-area:focus {
+      border-color: var(--primary-600);
+      box-shadow: 0 0 0 3px var(--primary-100);
+    }
+    .success-card {
+      display: none;
+      background: white;
+      border: 1px solid var(--accent-200);
+      border-radius: var(--radius-xl);
+      padding: 3.5rem 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-xl);
+    }
+    .protocol-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--slate-100);
+      border: 2px dashed var(--primary-400);
+      padding: 1rem 1.75rem;
+      border-radius: var(--radius-lg);
+      font-family: monospace;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary-900);
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Minimal Nav -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+          </svg>
+        </div>
+        Voz<span>Escolar</span>
+      </a>
+      <div>
+        <span class="badge-tag" style="margin-bottom: 0;">🔒 Sessão Confidencial</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container eval-container">
+    
+    <!-- Header Status -->
+    <div class="eval-header-card" id="headerInfo">
+      <div>
+        <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary-600); text-transform: uppercase;">Campanha 2026.1</span>
+        <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--slate-900);" id="schoolDisplayName">Colégio Estadual Modelo</h2>
+        <p style="font-size: 0.88rem; color: var(--slate-500);">Seu código foi validado com sucesso. Responda com sinceridade.</p>
+      </div>
+      <div style="text-align: right;">
+        <span style="font-size: 0.78rem; color: var(--slate-400); display: block;">Código em uso:</span>
+        <code id="displayActiveCode" style="font-weight: 700; background: var(--slate-100); padding: 0.3rem 0.6rem; border-radius: var(--radius-sm); color: var(--slate-700);">ESC-2026-X9K4</code>
+      </div>
+    </div>
+
+    <!-- Evaluation Form -->
+    <form id="evaluationForm">
+      
+      <!-- 1. Ensino -->
+      <div class="eval-category-card">
+        <div class="category-title-flex">
+          <div class="cat-icon-badge" style="background: var(--primary-50); color: var(--primary-600);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--slate-900);">1. Qualidade do Ensino e Didática</h3>
+            <p style="font-size: 0.85rem; color: var(--slate-500);">Metodologia dos professores, clareza, apoio com dúvidas e materiais.</p>
+          </div>
+        </div>
+
+        <div class="star-rating-group">
+          <div class="stars">
+            <input type="radio" id="ensino-5" name="ensino_score" value="5" required><label for="ensino-5">★</label>
+            <input type="radio" id="ensino-4" name="ensino_score" value="4"><label for="ensino-4">★</label>
+            <input type="radio" id="ensino-3" name="ensino_score" value="3"><label for="ensino-3">★</label>
+            <input type="radio" id="ensino-2" name="ensino_score" value="2"><label for="ensino-2">★</label>
+            <input type="radio" id="ensino-1" name="ensino_score" value="1"><label for="ensino-1">★</label>
+          </div>
+          <span class="score-hint">Selecione uma nota de 1 a 5</span>
+        </div>
+
+        <textarea class="comment-area" placeholder="Comentário opcional sobre o ensino (críticas construtivas ou elogios)..."></textarea>
+      </div>
+
+      <!-- 2. Infraestrutura -->
+      <div class="eval-category-card">
+        <div class="category-title-flex">
+          <div class="cat-icon-badge" style="background: var(--accent-50); color: var(--accent-600);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--slate-900);">2. Infraestrutura e Ambientes</h3>
+            <p style="font-size: 0.85rem; color: var(--slate-500);">Salas de aula, ventilação, cadeiras, biblioteca, quadras e laboratórios.</p>
+          </div>
+        </div>
+
+        <div class="star-rating-group">
+          <div class="stars">
+            <input type="radio" id="infra-5" name="infra_score" value="5" required><label for="infra-5">★</label>
+            <input type="radio" id="infra-4" name="infra_score" value="4"><label for="infra-4">★</label>
+            <input type="radio" id="infra-3" name="infra_score" value="3"><label for="infra-3">★</label>
+            <input type="radio" id="infra-2" name="infra_score" value="2"><label for="infra-2">★</label>
+            <input type="radio" id="infra-1" name="infra_score" value="1"><label for="infra-1">★</label>
+          </div>
+          <span class="score-hint">Selecione uma nota de 1 a 5</span>
+        </div>
+
+        <textarea class="comment-area" placeholder="Comentário opcional sobre a infraestrutura..."></textarea>
+      </div>
+
+      <!-- 3. Higiene -->
+      <div class="eval-category-card">
+        <div class="category-title-flex">
+          <div class="cat-icon-badge" style="background: #f0fdfa; color: #0d9488;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--slate-900);">3. Higiene e Conservação</h3>
+            <p style="font-size: 0.85rem; color: var(--slate-500);">Banheiros, papel, sabonete, limpeza geral dos pátios e corredores.</p>
+          </div>
+        </div>
+
+        <div class="star-rating-group">
+          <div class="stars">
+            <input type="radio" id="higiene-5" name="higiene_score" value="5" required><label for="higiene-5">★</label>
+            <input type="radio" id="higiene-4" name="higiene_score" value="4"><label for="higiene-4">★</label>
+            <input type="radio" id="higiene-3" name="higiene_score" value="3"><label for="higiene-3">★</label>
+            <input type="radio" id="higiene-2" name="higiene_score" value="2"><label for="higiene-2">★</label>
+            <input type="radio" id="higiene-1" name="higiene_score" value="1"><label for="higiene-1">★</label>
+          </div>
+          <span class="score-hint">Selecione uma nota de 1 a 5</span>
+        </div>
+
+        <textarea class="comment-area" placeholder="Comentário opcional sobre a higiene..."></textarea>
+      </div>
+
+      <!-- 4. Alimentação -->
+      <div class="eval-category-card">
+        <div class="category-title-flex">
+          <div class="cat-icon-badge" style="background: var(--warning-50); color: var(--warning-600);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--slate-900);">4. Alimentação e Cantina</h3>
+            <p style="font-size: 0.85rem; color: var(--slate-500);">Qualidade e variedade da merenda escolar e opções da cantina.</p>
+          </div>
+        </div>
+
+        <div class="star-rating-group">
+          <div class="stars">
+            <input type="radio" id="alim-5" name="alim_score" value="5" required><label for="alim-5">★</label>
+            <input type="radio" id="alim-4" name="alim_score" value="4"><label for="alim-4">★</label>
+            <input type="radio" id="alim-3" name="alim_score" value="3"><label for="alim-3">★</label>
+            <input type="radio" id="alim-2" name="alim_score" value="2"><label for="alim-2">★</label>
+            <input type="radio" id="alim-1" name="alim_score" value="1"><label for="alim-1">★</label>
+          </div>
+          <span class="score-hint">Selecione uma nota de 1 a 5</span>
+        </div>
+
+        <textarea class="comment-area" placeholder="Comentário opcional sobre a alimentação..."></textarea>
+      </div>
+
+      <!-- 5. Convivência -->
+      <div class="eval-category-card">
+        <div class="category-title-flex">
+          <div class="cat-icon-badge" style="background: #faf5ff; color: #9333ea;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--slate-900);">5. Convivência e Acolhimento</h3>
+            <p style="font-size: 0.85rem; color: var(--slate-500);">Respeito mútuo, combate ao bullying e clima escolar.</p>
+          </div>
+        </div>
+
+        <div class="star-rating-group">
+          <div class="stars">
+            <input type="radio" id="conv-5" name="conv_score" value="5" required><label for="conv-5">★</label>
+            <input type="radio" id="conv-4" name="conv_score" value="4"><label for="conv-4">★</label>
+            <input type="radio" id="conv-3" name="conv_score" value="3"><label for="conv-3">★</label>
+            <input type="radio" id="conv-2" name="conv_score" value="2"><label for="conv-2">★</label>
+            <input type="radio" id="conv-1" name="conv_score" value="1"><label for="conv-1">★</label>
+          </div>
+          <span class="score-hint">Selecione uma nota de 1 a 5</span>
+        </div>
+
+        <textarea class="comment-area" placeholder="Comentário opcional sobre o clima de convivência..."></textarea>
+      </div>
+
+      <!-- 6. Sugestões Finais -->
+      <div class="eval-category-card">
+        <div class="category-title-flex">
+          <div class="cat-icon-badge" style="background: #fff1f2; color: #e11d48;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18h6"></path>
+              <path d="M10 22h4"></path>
+              <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--slate-900);">6. Propostas e Sugestões Gerais</h3>
+            <p style="font-size: 0.85rem; color: var(--slate-500);">O que você gostaria de ver na escola nos próximos meses?</p>
+          </div>
+        </div>
+
+        <textarea class="comment-area" rows="4" placeholder="Deixe suas ideias para eventos, melhorias, clubes ou projetos escolares..."></textarea>
+      </div>
+
+      <!-- Submit Footer -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem;">
+        <a href="../index.html" class="btn btn-outline">Cancelar</a>
+        <button type="submit" class="btn btn-accent btn-lg" id="submitEvalBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          Enviar Avaliação Segura
+        </button>
+      </div>
+    </form>
+
+    <!-- Success Feedback Container -->
+    <div class="success-card" id="successCard">
+      <div style="width: 4rem; height: 4rem; background: var(--accent-50); border-radius: 50%; color: var(--accent-600); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <h2 style="font-size: 2rem; font-weight: 800; color: var(--slate-900); margin-bottom: 0.75rem;">
+        Avaliação Enviada com Sucesso!
+      </h2>
+      <p style="color: var(--slate-600); max-width: 540px; margin: 0 auto 1.5rem;">
+        Sua avaliação foi registrada de forma anônima e desvinculada do seu código. Ela passará por nossa triagem ética antes da publicação pública.
+      </p>
+
+      <div style="font-size: 0.85rem; font-weight: 700; color: var(--slate-500); text-transform: uppercase;">
+        Seu Protocolo Aleatório de Acompanhamento:
+      </div>
+      <div class="protocol-box" id="protocolDisplay">
+        PRT-2026-98X2F
+      </div>
+
+      <div style="background: var(--primary-50); border: 1px solid var(--primary-200); padding: 1rem; border-radius: var(--radius-md); max-width: 540px; margin: 0 auto 2rem; font-size: 0.88rem; color: var(--primary-900); text-align: left;">
+        📌 <strong>Importante:</strong> Guarde este protocolo para consultar o status da moderação do seu comentário a qualquer momento na aba <em>"Consultar Protocolo"</em>.
+      </div>
+
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <a href="protocolo.html" class="btn btn-outline" id="goToProtocolBtn">Ver Status do Protocolo</a>
+        <a href="../index.html" class="btn btn-primary">Voltar para a Página Inicial</a>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // Populate session code if available
+    const activeCode = sessionStorage.getItem('voz_escolar_active_code') || 'ESC-2026-X9K4';
+    const schoolName = sessionStorage.getItem('voz_escolar_school_name') || 'Colégio Estadual Modelo';
+    
+    document.getElementById('displayActiveCode').textContent = activeCode;
+    document.getElementById('schoolDisplayName').textContent = schoolName;
+
+    // Handle Form Submit
+    const form = document.getElementById('evaluationForm');
+    const headerInfo = document.getElementById('headerInfo');
+    const successCard = document.getElementById('successCard');
+    const protocolDisplay = document.getElementById('protocolDisplay');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Generate random protocol
+      const randomSuffix = Math.random().toString(36).substring(2, 7).toUpperCase();
+      const generatedProtocol = `PRT-2026-${randomSuffix}`;
+
+      sessionStorage.setItem('last_created_protocol', generatedProtocol);
+      protocolDisplay.textContent = generatedProtocol;
+
+      // Hide form & show success
+      form.style.display = 'none';
+      headerInfo.style.display = 'none';
+      successCard.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

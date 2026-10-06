@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Voz Escolar - Plataforma de avaliação e participação estudantil com anonimato protegido e escuta ativa. Sua voz transforma a escola.">
+  <title>Voz Escolar | Sua voz transforma a escola</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+            <line x1="12" y1="19" x2="12" y2="22"></line>
+          </svg>
+        </div>
+        Voz<span>Escolar</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#como-funciona">Como Funciona</a></li>
+        <li><a href="#eixos">Eixos de Avaliação</a></li>
+        <li><a href="#escolas">Consultar Escolas</a></li>
+        <li><a href="#privacidade">Privacidade & LGPD</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn btn-primary open-code-modal" id="navEvalBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 11 12 14 22 4"></polyline>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+          Avaliar com Código
+        </button>
+        <a href="pages/painel.html" class="btn btn-outline" title="Acesso para Gestores e Moderadores">
+          Área da Escola
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge-tag">
+          <span class="pulse-dot"></span>
+          Plataforma Segura de Escuta Estudantil
+        </div>
+        <h1 class="hero-title">
+          Sua voz <span class="gradient-text">transforma</span> a sua escola.
+        </h1>
+        <p class="hero-desc">
+          Um canal transparente e seguro para estudantes avaliarem o ensino, infraestrutura e convivência escolar. Anonimato protegido por código e planos de melhoria reais.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-accent btn-lg open-code-modal" id="heroEvalBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+            Inserir Código e Avaliar
+          </button>
+          <a href="#escolas" class="btn btn-outline btn-lg">
+            Consultar Resultados Públicos
+          </a>
+        </div>
+
+        <div class="hero-trust-banner">
+          <div class="trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span>Anonimato Protegido</span>
+          </div>
+          <div class="trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+            <span>Moderação Ética</span>
+          </div>
+          <div class="trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span>Planos de Ação Reais</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual / Floating Card -->
+      <div class="hero-card-preview">
+        <div class="floating-card">
+          <div class="card-header-flex">
+            <div class="school-meta">
+              <h4>Colégio Estadual Modelo</h4>
+              <p>Curitiba - PR • Campanha 2026.1</p>
+            </div>
+            <div class="score-badge-lg">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              4.6
+            </div>
+          </div>
+
+          <div class="score-bars">
+            <div class="bar-item">
+              <div class="bar-labels">
+                <span>Qualidade do Ensino</span>
+                <span>4.8 / 5.0</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 96%;"></div>
+              </div>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-labels">
+                <span>Infraestrutura & Laboratórios</span>
+                <span>4.2 / 5.0</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 84%;"></div>
+              </div>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-labels">
+                <span>Convivência e Respeito</span>
+                <span>4.7 / 5.0</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 94%;"></div>
+              </div>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-labels">
+                <span>Alimentação & Cantina</span>
+                <span>4.4 / 5.0</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 88%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="plan-notice-pill">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 14 14"></polyline>
+            </svg>
+            <div>
+              <strong>Plano de Melhoria em Execução:</strong>
+              <div style="font-size: 0.8rem; color: var(--slate-600);">Climatização das salas do 2º andar (Previsão: Nov/2026)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eixos de Avaliação -->
+  <section class="section section-alt" id="eixos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Categorias Oficiais</span>
+        <h2 class="section-title">Os 6 Pilares de Avaliação</h2>
+        <p class="section-desc">
+          Critérios claros e objetivos para que a comunidade escolar saiba exatamente onde manter a excelência e onde focar melhorias.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- 1. Ensino -->
+        <div class="pillar-card">
+          <div class="pillar-icon-box blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
+          <h3>1. Ensino</h3>
+          <p>Metodologia pedagógica, clareza das explicações, disponibilidade para dúvidas e material didático.</p>
+          <div class="pillar-tags">
+            <span>Didática</span>
+            <span>Apoio Pedagógico</span>
+            <span>Aulas Práticas</span>
+          </div>
+        </div>
+
+        <!-- 2. Infraestrutura -->
+        <div class="pillar-card">
+          <div class="pillar-icon-box green">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <h3>2. Infraestrutura</h3>
+          <p>Salas de aula, ventilação, iluminação, carteiras, laboratórios, quadras de esporte e biblioteca.</p>
+          <div class="pillar-tags">
+            <span>Salas</span>
+            <span>Tecnologia</span>
+            <span>Espaços Comuns</span>
+          </div>
+        </div>
+
+        <!-- 3. Higiene -->
+        <div class="pillar-card">
+          <div class="pillar-icon-box teal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            </svg>
+          </div>
+          <h3>3. Higiene</h3>
+          <p>Limpeza dos banheiros, abastecimento de sabonete e papel, conservação e coleta de lixo.</p>
+          <div class="pillar-tags">
+            <span>Sanitários</span>
+            <span>Limpeza Geral</span>
+            <span>Água Potável</span>
+          </div>
+        </div>
+
+        <!-- 4. Alimentação -->
+        <div class="pillar-card">
+          <div class="pillar-icon-box amber">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+              <line x1="6" y1="1" x2="6" y2="4"></line>
+              <line x1="10" y1="1" x2="10" y2="4"></line>
+              <line x1="14" y1="1" x2="14" y2="4"></line>
+            </svg>
+          </div>
+          <h3>4. Alimentação</h3>
+          <p>Variedade e qualidade da merenda escolar, opções na cantina, higiene no preparo e preços justos.</p>
+          <div class="pillar-tags">
+            <span>Merenda</span>
+            <span>Nutrição</span>
+            <span>Cantina</span>
+          </div>
+        </div>
+
+        <!-- 5. Convivência -->
+        <div class="pillar-card">
+          <div class="pillar-icon-box purple">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h3>5. Convivência</h3>
+          <p>Respeito entre estudantes e funcionários, combate ativo ao bullying, inclusão e acolhimento.</p>
+          <div class="pillar-tags">
+            <span>Anti-Bullying</span>
+            <span>Acolhimento</span>
+            <span>Inclusão</span>
+          </div>
+        </div>
+
+        <!-- 6. Sugestões -->
+        <div class="pillar-card">
+          <div class="pillar-icon-box rose">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18h6"></path>
+              <path d="M10 22h4"></path>
+              <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5z"></path>
+            </svg>
+          </div>
+          <h3>6. Sugestões</h3>
+          <p>Espaço livre para ideias inovadoras de projetos, clubes estudantis, eventos e melhorias gerais.</p>
+          <div class="pillar-tags">
+            <span>Ideias</span>
+            <span>Projetos</span>
+            <span>Grêmio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Como Funciona -->
+  <section class="section" id="como-funciona">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Fluxo Transparente</span>
+        <h2 class="section-title">Como o Voz Escolar Funciona</h2>
+        <p class="section-desc">
+          Um processo simples para o estudante e com proteção absoluta de dados em cada etapa.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h4>Receba seu Código</h4>
+          <p>A escola distribui um código único e aleatório por campanha. Ele não contém seu nome nem sua matrícula.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h4>Avalie com Sinceridade</h4>
+          <p>Dê notas de 1 a 5 para os 6 pilares e escreva comentários e sugestões construtivas com total liberdade.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h4>Moderação Ética</h4>
+          <p>Seu texto passa por moderação semiautomática para barrar ofensas e vazamentos, preservando críticas legítimas.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h4>Acompanhe o Impacto</h4>
+          <p>Guarde o protocolo aleatório gerado para acompanhar o status e veja a escola responder com ações concretas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultar Escolas -->
+  <section class="section section-alt" id="escolas">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Transparência Pública</span>
+        <h2 class="section-title">Resultados Públicos por Escola</h2>
+        <p class="section-desc">
+          Pesquise instituições cadastradas e acompanhe as médias gerais, comentários aprovados e planos de ação.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="search-bar-section">
+          <div class="search-input-group">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="schoolSearch" placeholder="Buscar por nome da escola...">
+          </div>
+          <div class="search-divider"></div>
+          <div class="search-input-group">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <input type="text" id="citySearch" placeholder="Cidade / Estado...">
+          </div>
+        </div>
+      </div>
+
+      <div class="schools-grid" id="schoolsContainer">
+        <!-- Escola 1 -->
+        <div class="school-card" data-school-name="Colégio Estadual Modelo" data-city="Curitiba - PR">
+          <div>
+            <div class="school-header-info">
+              <div>
+                <h3 class="school-title">Colégio Estadual Modelo</h3>
+                <span class="school-location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  Curitiba - PR
+                </span>
+              </div>
+              <div class="rating-pill">★ 4.6</div>
+            </div>
+
+            <div class="school-meta-tags">
+              <span class="meta-tag highlight">Quórum Atingido (482 votos)</span>
+              <span class="meta-tag">3 Planos Ativos</span>
+              <span class="meta-tag">Campanha 2026.1</span>
+            </div>
+          </div>
+
+          <a href="pages/escola.html?id=1" class="btn btn-outline" style="width: 100%;">
+            Ver Resultados & Respostas
+          </a>
+        </div>
+
+        <!-- Escola 2 -->
+        <div class="school-card" data-school-name="Instituto Educacional São Paulo" data-city="São Paulo - SP">
+          <div>
+            <div class="school-header-info">
+              <div>
+                <h3 class="school-title">Instituto Educacional São Paulo</h3>
+                <span class="school-location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  São Paulo - SP
+                </span>
+              </div>
+              <div class="rating-pill">★ 4.2</div>
+            </div>
+
+            <div class="school-meta-tags">
+              <span class="meta-tag highlight">Quórum Atingido (315 votos)</span>
+              <span class="meta-tag">2 Planos Ativos</span>
+              <span class="meta-tag">Campanha 2026.1</span>
+            </div>
+          </div>
+
+          <a href="pages/escola.html?id=2" class="btn btn-outline" style="width: 100%;">
+            Ver Resultados & Respostas
+          </a>
+        </div>
+
+        <!-- Escola 3 -->
+        <div class="school-card" data-school-name="Escola Cívico-Pedagógica Pioneira" data-city="Belo Horizonte - MG">
+          <div>
+            <div class="school-header-info">
+              <div>
+                <h3 class="school-title">Escola Cívico-Pedagógica Pioneira</h3>
+                <span class="school-location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  Belo Horizonte - MG
+                </span>
+              </div>
+              <div class="rating-pill">★ 4.4</div>
+            </div>
+
+            <div class="school-meta-tags">
+              <span class="meta-tag highlight">Quórum Atingido (270 votos)</span>
+              <span class="meta-tag">1 Plano Ativo</span>
+              <span class="meta-tag">Campanha 2026.1</span>
+            </div>
+          </div>
+
+          <a href="pages/escola.html?id=3" class="btn btn-outline" style="width: 100%;">
+            Ver Resultados & Respostas
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacidade & LGPD Section -->
+  <section class="section" id="privacidade">
+    <div class="container">
+      <div class="privacy-card">
+        <div class="privacy-grid">
+          <div>
+            <h2>Anonimato Protegido & Conformidade com a LGPD</h2>
+            <p>
+              O Voz Escolar foi desenhado com privacidade por padrão (*Privacy by Design*). Nosso compromisso é garantir a liberdade de expressão estudantil com responsabilidade institucional.
+            </p>
+
+            <div class="privacy-features">
+              <div class="privacy-feat-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Desacoplamento de Matrícula:</strong>
+                  <span>A escola sabe quem é elegível, mas o banco de respostas armazena apenas hashes aleatórios sem vínculo com a matrícula.</span>
+                </div>
+              </div>
+
+              <div class="privacy-feat-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Quórum Mínimo para Divulgação:</strong>
+                  <span>Resultados só são públicos com amostras estatísticas suficientes, impedindo dedução sobre turmas reduzidas.</span>
+                </div>
+              </div>
+
+              <div class="privacy-feat-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Proteção Contra Retaliações:</strong>
+                  <span>Nenhum gestor ou professor tem acesso técnico para identificar o autor de uma crítica válida.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="privacy-badge-box">
+            <div class="shield-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 style="color: white; margin-bottom: 0.5rem;">Segurança & Ética</h3>
+            <p style="font-size: 0.88rem; color: var(--slate-300); margin-bottom: 1rem;">
+              Em conformidade com a Lei Geral de Proteção de Dados (LGPD) e diretrizes do ECA.
+            </p>
+            <a href="pages/protocolo.html" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.3); width: 100%;">
+              Consultar Protocolo de Envio
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal de Entrada com Código -->
+  <div class="modal-overlay" id="codeModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>Participar da Avaliação</h3>
+        <button class="modal-close-btn close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Digite o código de participação fornecido pela sua escola para abrir o formulário confidencial.</p>
+        
+        <form id="codeForm">
+          <div class="code-input-box">
+            <label for="participationCode">CÓDIGO DE PARTICIPAÇÃO</label>
+            <input type="text" id="participationCode" placeholder="EX: ESC-2026-X9K4" required autocomplete="off">
+            <span id="codeError" style="color: var(--danger-600); font-size: 0.85rem; display: none;"></span>
+          </div>
+
+          <div style="background: var(--slate-50); border: 1px solid var(--slate-200); padding: 0.85rem; border-radius: var(--radius-md); font-size: 0.82rem; color: var(--slate-600); margin-bottom: 1.5rem;">
+            🔒 <strong>Garantia de Sigilo:</strong> O seu código valida apenas que você é um estudante elegível da campanha atual. Suas notas e textos não serão vinculados à sua identidade.
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+            <button type="button" class="btn btn-outline close-modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Validar e Prosseguir</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              </svg>
+            </div>
+            Voz<span style="color: var(--accent-400);">Escolar</span>
+          </a>
+          <p>
+            Plataforma de escuta ativa e avaliação escolar. Promovendo a melhoria contínua através do anonimato protegido e diálogo ético.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navegação</h5>
+          <ul>
+            <li><a href="#como-funciona">Como Funciona</a></li>
+            <li><a href="#eixos">Os 6 Eixos</a></li>
+            <li><a href="#escolas">Consultar Escolas</a></li>
+            <li><a href="pages/protocolo.html">Consultar Protocolo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Institucional</h5>
+          <ul>
+            <li><a href="pages/painel.html">Acesso Escolas</a></li>
+            <li><a href="#privacidade">Política de Privacidade</a></li>
+            <li><a href="#privacidade">Termos de Uso</a></li>
+            <li><a href="#privacidade">Canal de Ouvidoria</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Slogan</h5>
+          <p style="font-size: 0.95rem; color: var(--slate-300); font-weight: 600; margin-bottom: 0.75rem;">
+            "Sua voz transforma a escola"
+          </p>
+          <span style="font-size: 0.8rem; color: var(--slate-400);">Versão 0.2 • Ideação e Protótipo</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Voz Escolar. Todos os direitos reservados.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#privacidade">Privacidade</a>
+          <a href="#privacidade">Segurança LGPD</a>
+          <a href="#privacidade">Contato</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

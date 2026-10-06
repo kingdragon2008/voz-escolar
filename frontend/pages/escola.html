@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultados Públicos - Colégio Estadual Modelo | Voz Escolar</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .school-hero-header {
+      background: white;
+      border-bottom: 1px solid var(--slate-200);
+      padding: 3rem 0;
+    }
+    .header-layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+    .main-score-card {
+      background: linear-gradient(135deg, var(--slate-900), var(--slate-800));
+      color: white;
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      text-align: center;
+      min-width: 220px;
+    }
+    .main-score-num {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--accent-400);
+      margin: 0.5rem 0;
+    }
+    .tabs-nav {
+      display: flex;
+      gap: 1rem;
+      border-bottom: 2px solid var(--slate-200);
+      margin-bottom: 2.5rem;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      padding: 0.85rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--slate-500);
+      cursor: pointer;
+      position: relative;
+      transition: color var(--transition-fast);
+    }
+    .tab-btn.active {
+      color: var(--primary-600);
+    }
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--primary-600);
+    }
+    .plan-card {
+      background: white;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .status-badge.in-progress {
+      background: var(--warning-50);
+      color: var(--warning-600);
+      border: 1px solid #fde68a;
+    }
+    .status-badge.completed {
+      background: var(--accent-50);
+      color: var(--accent-700);
+      border: 1px solid var(--accent-200);
+    }
+    .review-item {
+      background: white;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .school-reply-box {
+      margin-top: 1.25rem;
+      padding: 1.25rem;
+      background: var(--primary-50);
+      border-left: 4px solid var(--primary-600);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+          </svg>
+        </div>
+        Voz<span>Escolar</span>
+      </a>
+
+      <div class="nav-actions">
+        <a href="../index.html#escolas" class="btn btn-outline">
+          ← Voltar para Busca
+        </a>
+        <a href="avaliar.html" class="btn btn-primary">
+          Avaliar Esta Escola
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- School Hero Header -->
+  <div class="school-hero-header">
+    <div class="container header-layout">
+      <div>
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
+          <span class="badge-tag" style="margin-bottom: 0;">✓ Instituição Verificada</span>
+          <span class="badge-tag" style="background: var(--accent-50); color: var(--accent-700); border-color: var(--accent-200); margin-bottom: 0;">Quórum Válido</span>
+        </div>
+        <h1 style="font-size: 2.4rem; font-weight: 800; color: var(--slate-900); margin-bottom: 0.5rem;">
+          Colégio Estadual Modelo
+        </h1>
+        <p style="font-size: 1.05rem; color: var(--slate-600); display: flex; align-items: center; gap: 0.5rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Curitiba, Paraná • Ensino Fundamental II e Ensino Médio
+        </p>
+      </div>
+
+      <div class="main-score-card">
+        <span style="font-size: 0.85rem; text-transform: uppercase; color: var(--slate-300); font-weight: 700;">Média Geral</span>
+        <div class="main-score-num">4.6</div>
+        <div style="font-size: 0.85rem; color: var(--slate-300);">Baseado em 482 avaliações</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <main class="container" style="padding-top: 2.5rem; padding-bottom: 5rem;">
+    
+    <!-- Tab Controls -->
+    <div class="tabs-nav">
+      <button class="tab-btn active" onclick="switchTab('indicadores', this)">📊 Indicadores por Pilar</button>
+      <button class="tab-btn" onclick="switchTab('planos', this)">🎯 Planos de Melhoria (3)</button>
+      <button class="tab-btn" onclick="switchTab('comentarios', this)">💬 Comentários & Respostas (18)</button>
+    </div>
+
+    <!-- TAB 1: Indicadores -->
+    <div id="tab-indicadores" class="tab-content">
+      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem;">
+        
+        <!-- Pillar Bars -->
+        <div style="background: white; border: 1px solid var(--slate-200); border-radius: var(--radius-xl); padding: 2.25rem;">
+          <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--slate-900); margin-bottom: 1.5rem;">
+            Desempenho por Eixo de Avaliação
+          </h3>
+
+          <div class="score-bars" style="gap: 1.5rem;">
+            <!-- 1. Ensino -->
+            <div class="bar-item">
+              <div class="bar-labels">
+                <span style="font-size: 0.95rem;">1. Ensino e Didática</span>
+                <span style="font-weight: 800; color: var(--primary-700);">4.8 / 5.0</span>
+              </div>
+              <div class="progress-track" style="height: 10px;">
+                <div class="progress-fill" style="width: 96%;"></div>
+              </div>
+            </div>
+
+            <!-- 2. Infraestrutura -->
+            <div class="bar-item">
+              <div class="bar-labels">
+                <span style="font-size: 0.95rem;">2. Infraestrutura e Salas</span>
+                <span style="font-weight: 800; color: var(--primary-700);">4.2 / 5.0</span>
+              </div>
+              <div class="progress-track" style="height: 10px;">
+                <div class="progress-fill" style="width: 84%;"></div>
+              </div>
+            </div>
+
+            <!-- 3. Higiene -->
+            <div class="bar-item">
+              <div class="bar-labels">
+                <span style="font-size: 0.95rem;">3. Higiene e Conservação</span>
+                <span style="font-weight: 800; color: var(--primary-700);">4.5 / 5.0</span>
+              </div>
+              <div class="progress-track" style="height: 10px;">
+                <div class="progress-fill" style="width: 90%;"></div>
+              </div>
+            </div>
+
+            <!-- 4. Alimentação -->
+            <div class="bar-item">
+              <div class="bar-labels">
+                <span style="font-size: 0.95rem;">4. Alimentação e Cantina</span>
+                <span style="font-weight: 800; color: var(--primary-700);">4.4 / 5.0</span>
+              </div>
+              <div class="progress-track" style="height: 10px;">
+                <div class="progress-fill" style="width: 88%;"></div>
+              </div>
+            </div>
+
+            <!-- 5. Convivência -->
+            <div class="bar-item">
+              <div class="bar-labels">
+                <span style="font-size: 0.95rem;">5. Convivência & Respeito</span>
+                <span style="font-weight: 800; color: var(--primary-700);">4.7 / 5.0</span>
+              </div>
+              <div class="progress-track" style="height: 10px;">
+                <div class="progress-fill" style="width: 94%;"></div>
+              </div>
+            </div>
+
+            <!-- 6. Sugestões -->
+            <div class="bar-item">
+              <div class="bar-labels">
+                <span style="font-size: 0.95rem;">6. Abertura a Sugestões</span>
+                <span style="font-weight: 800; color: var(--primary-700);">4.3 / 5.0</span>
+              </div>
+              <div class="progress-track" style="height: 10px;">
+                <div class="progress-fill" style="width: 86%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quorum & Methodology Sidebar -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="background: white; border: 1px solid var(--slate-200); border-radius: var(--radius-xl); padding: 2rem;">
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--slate-900); margin-bottom: 0.75rem;">
+              Metodologia e Transparência
+            </h4>
+            <p style="font-size: 0.9rem; color: var(--slate-600); margin-bottom: 1rem;">
+              As médias representam a compilação de notas enviadas por estudantes com códigos únicos no ciclo letivo de 2026.1.
+            </p>
+            <div style="background: var(--slate-50); border: 1px solid var(--slate-200); padding: 1rem; border-radius: var(--radius-md); font-size: 0.85rem; color: var(--slate-700);">
+              <strong>Quórum Mínimo:</strong> Aprovado com 482 participações (superando a margem mínima de 10 por categoria para garantir a privacidade).
+            </div>
+          </div>
+
+          <div style="background: linear-gradient(135deg, var(--primary-50), white); border: 1px solid var(--primary-200); border-radius: var(--radius-xl); padding: 2rem;">
+            <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--primary-900); margin-bottom: 0.5rem;">
+              Você é aluno desta instituição?
+            </h4>
+            <p style="font-size: 0.9rem; color: var(--slate-600); margin-bottom: 1.25rem;">
+              Utilize o código fornecido pelo seu colégio para participar da campanha ativa.
+            </p>
+            <a href="avaliar.html" class="btn btn-primary" style="width: 100%;">
+              Participar da Avaliação
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 2: Planos de Melhoria -->
+    <div id="tab-planos" class="tab-content" style="display: none;">
+      <div class="plan-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+          <div>
+            <span class="status-badge in-progress">⏳ Em Execução</span>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--slate-900); margin-top: 0.5rem;">
+              Climatização e Instalação de Ar-Condicionado nas Salas do 2º Andar
+            </h3>
+          </div>
+          <span style="font-size: 0.85rem; color: var(--slate-500); font-weight: 600;">Previsão: 15/Nov/2026</span>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--slate-600); margin-bottom: 1rem;">
+          Em atendimento aos apontamentos do pilar de Infraestrutura, a direção iniciou o processo de reforma da rede elétrica e compra de 8 aparelhos de ar-condicionado para as turmas de Ensino Médio.
+        </p>
+        <div style="font-size: 0.85rem; color: var(--slate-500);">
+          <strong>Responsável:</strong> Coordenação Administrativa e APMF
+        </div>
+      </div>
+
+      <div class="plan-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+          <div>
+            <span class="status-badge completed">✓ Concluído</span>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--slate-900); margin-top: 0.5rem;">
+              Ampliação do Cardápio Saudável e Horário Estendido da Cantina
+            </h3>
+          </div>
+          <span style="font-size: 0.85rem; color: var(--slate-500); font-weight: 600;">Concluído em: 10/Set/2026</span>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--slate-600); margin-bottom: 1rem;">
+          Readequação do fornecimento de frutas frescas na merenda escolar e inclusão de opções vegetarianas e sucos naturais na cantina.
+        </p>
+        <div style="font-size: 0.85rem; color: var(--slate-500);">
+          <strong>Responsável:</strong> Equipe de Nutrição Escolar
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: Comentários Aprovados -->
+    <div id="tab-comentarios" class="tab-content" style="display: none;">
+      
+      <!-- Review 1 -->
+      <div class="review-item">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
+            <span class="meta-tag highlight">Infraestrutura</span>
+            <span style="font-size: 0.85rem; color: var(--slate-500);">Publicado em 28/09/2026</span>
+          </div>
+          <button class="btn btn-outline" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;" onclick="openReportModal('COM-104')">
+            🚩 Denunciar
+          </button>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--slate-800); line-height: 1.6;">
+          "Os laboratórios de química estão muito bem equipados, mas algumas salas do bloco B ainda ficam muito quentes à tarde, o que atrapalha a concentração."
+        </p>
+
+        <!-- Official Reply -->
+        <div class="school-reply-box">
+          <div style="display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; color: var(--primary-900); margin-bottom: 0.35rem;">
+            <span>Resposta Institucional da Direção</span>
+            <span style="color: var(--slate-500);">30/09/2026</span>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--slate-700); margin: 0;">
+            Olá! Agradecemos a colaboração. A climatização das salas do bloco B já foi inserida no nosso Plano de Melhorias com execução prevista para novembro de 2026.
+          </p>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="review-item">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
+            <span class="meta-tag highlight">Ensino</span>
+            <span style="font-size: 0.85rem; color: var(--slate-500);">Publicado em 22/09/2026</span>
+          </div>
+          <button class="btn btn-outline" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;" onclick="openReportModal('COM-102')">
+            🚩 Denunciar
+          </button>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--slate-800); line-height: 1.6;">
+          "O projeto de monitoria para matemática ajudou muito a turma antes das provas bimestrais. Seria ótimo expandir também para física e redação."
+        </p>
+
+        <!-- Official Reply -->
+        <div class="school-reply-box">
+          <div style="display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; color: var(--primary-900); margin-bottom: 0.35rem;">
+            <span>Resposta Institucional da Coordenação Pedagógica</span>
+            <span style="color: var(--slate-500);">25/09/2026</span>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--slate-700); margin: 0;">
+            Ficamos muito felizes com o resultado das monitorias! Já estamos organizando horários extras com os professores de física para o próximo bimestre.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Report Modal -->
+  <div class="modal-overlay" id="reportModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>Denunciar Conteúdo</h3>
+        <button class="modal-close-btn" onclick="closeReportModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Selecione o motivo da sinalização para que a equipe de moderação faça a análise ética:</p>
+        <form onsubmit="handleReportSubmit(event)">
+          <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.25rem;">
+            <label style="font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;">
+              <input type="radio" name="report_reason" value="ofensa" required> Linguagem ofensiva ou desrespeitosa
+            </label>
+            <label style="font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;">
+              <input type="radio" name="report_reason" value="dados_pessoais"> Exposição de dados pessoais de terceiros
+            </label>
+            <label style="font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;">
+              <input type="radio" name="report_reason" value="assedio"> Assédio, discriminação ou bullying
+            </label>
+            <label style="font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;">
+              <input type="radio" name="report_reason" value="ameaca"> Conteúdo grave ou ameaça
+            </label>
+          </div>
+          <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+            <button type="button" class="btn btn-outline" onclick="closeReportModal()">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Enviar Denúncia</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tabId, el) {
+      document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      
+      document.getElementById(`tab-${tabId}`).style.display = 'block';
+      el.classList.add('active');
+    }
+
+    const reportModal = document.getElementById('reportModal');
+    function openReportModal(id) {
+      reportModal.classList.add('active');
+    }
+    function closeReportModal() {
+      reportModal.classList.remove('active');
+    }
+    function handleReportSubmit(e) {
+      e.preventDefault();
+      alert('Denúncia recebida com sucesso. Nossa equipe de moderação irá avaliar o conteúdo.');
+      closeReportModal();
+    }
+  </script>
+</body>
+</html>

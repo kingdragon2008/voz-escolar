@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel da Gestão Escolar | Voz Escolar</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .dashboard-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 2rem;
+      margin: 2.5rem 0 4rem;
+    }
+    .sidebar-menu {
+      background: white;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      height: fit-content;
+    }
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--slate-600);
+      transition: all var(--transition-fast);
+      cursor: pointer;
+    }
+    .sidebar-link:hover,
+    .sidebar-link.active {
+      background: var(--primary-50);
+      color: var(--primary-700);
+    }
+    .metric-card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .metric-card {
+      background: white;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .metric-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--slate-900);
+      margin: 0.25rem 0;
+    }
+    .table-container {
+      background: white;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 2rem;
+    }
+    .table-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--slate-200);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th {
+      background: var(--slate-50);
+      padding: 0.85rem 1.5rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--slate-600);
+      text-transform: uppercase;
+    }
+    td {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--slate-100);
+      font-size: 0.9rem;
+      color: var(--slate-700);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Minimal Nav -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+          </svg>
+        </div>
+        Voz<span>Escolar</span>
+        <span style="font-size: 0.8rem; background: var(--primary-100); color: var(--primary-800); padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 700; margin-left: 0.5rem;">Gestor</span>
+      </a>
+
+      <div class="nav-actions">
+        <span style="font-size: 0.88rem; color: var(--slate-600); font-weight: 600;">Diretoria: Colégio Modelo</span>
+        <a href="../index.html" class="btn btn-outline" style="font-size: 0.85rem;">Sair</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="dashboard-layout">
+      
+      <!-- Sidebar -->
+      <aside class="sidebar-menu">
+        <div class="sidebar-link active" onclick="switchDashboardView('visao-geral', this)">
+          📊 Visão Geral
+        </div>
+        <div class="sidebar-link" onclick="switchDashboardView('planos-gestao', this)">
+          🎯 Planos de Melhoria
+        </div>
+        <div class="sidebar-link" onclick="switchDashboardView('respostas-gestao', this)">
+          💬 Respostas aos Alunos
+        </div>
+        <div class="sidebar-link" onclick="switchDashboardView('codigos-gestao', this)">
+          🔑 Lotes de Códigos
+        </div>
+      </aside>
+
+      <!-- Main Dashboard Content -->
+      <section class="dashboard-content">
+        
+        <!-- Metrics -->
+        <div class="metric-card-grid">
+          <div class="metric-card">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--slate-500); text-transform: uppercase;">Média Geral</span>
+            <div class="metric-value" style="color: var(--accent-600);">★ 4.6</div>
+            <span style="font-size: 0.78rem; color: var(--accent-600); font-weight: 600;">+0.3 vs. 2025.2</span>
+          </div>
+
+          <div class="metric-card">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--slate-500); text-transform: uppercase;">Respostas Válidas</span>
+            <div class="metric-value">482</div>
+            <span style="font-size: 0.78rem; color: var(--slate-500);">Quórum Atingido</span>
+          </div>
+
+          <div class="metric-card">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--slate-500); text-transform: uppercase;">Planos Ativos</span>
+            <div class="metric-value" style="color: var(--primary-600);">3</div>
+            <span style="font-size: 0.78rem; color: var(--slate-500);">1 concluído</span>
+          </div>
+
+          <div class="metric-card">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--slate-500); text-transform: uppercase;">Comentários Aprovados</span>
+            <div class="metric-value">18</div>
+            <span style="font-size: 0.78rem; color: var(--slate-500);">2 aguardando resposta</span>
+          </div>
+        </div>
+
+        <!-- View 1: Visão Geral -->
+        <div id="view-visao-geral" class="dash-view">
+          <div class="table-container">
+            <div class="table-header">
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--slate-900);">
+                Planos de Melhoria em Execução
+              </h3>
+              <button class="btn btn-primary" onclick="alert('Modal de novo plano de ação aberto.')">
+                + Novo Plano de Melhoria
+              </button>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Eixo</th>
+                  <th>Ação / Iniciativa</th>
+                  <th>Responsável</th>
+                  <th>Prazo</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="meta-tag highlight">Infraestrutura</span></td>
+                  <td><strong>Climatização das salas do 2º andar</strong></td>
+                  <td>APMF / Coordenação</td>
+                  <td>15/Nov/2026</td>
+                  <td><span class="status-badge" style="background: var(--warning-50); color: var(--warning-600);">Em Execução</span></td>
+                </tr>
+                <tr>
+                  <td><span class="meta-tag highlight">Alimentação</span></td>
+                  <td><strong>Ampliação de opções saudáveis na cantina</strong></td>
+                  <td>Nutrição Escolar</td>
+                  <td>10/Set/2026</td>
+                  <td><span class="status-badge" style="background: var(--accent-50); color: var(--accent-700);">Concluído</span></td>
+                </tr>
+                <tr>
+                  <td><span class="meta-tag highlight">Ensino</span></td>
+                  <td><strong>Horário estendido de monitoria para Física</strong></td>
+                  <td>Coord. Pedagógica</td>
+                  <td>30/Out/2026</td>
+                  <td><span class="status-badge" style="background: var(--primary-50); color: var(--primary-700);">Planejado</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- View 2: Lotes de Códigos (Mock) -->
+        <div id="view-codigos-gestao" class="dash-view" style="display: none;">
+          <div class="table-container">
+            <div class="table-header">
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--slate-900);">Gerador de Lotes de Participação</h3>
+                <p style="font-size: 0.85rem; color: var(--slate-500);">Emita códigos anônimos para entregar aos alunos da campanha 2026.1.</p>
+              </div>
+              <button class="btn btn-accent" onclick="alert('Gerados 50 novos códigos anônimos!')">
+                + Gerar Lote de Códigos
+              </button>
+            </div>
+            <div style="padding: 1.5rem;">
+              <p style="font-size: 0.9rem; color: var(--slate-600); margin-bottom: 1rem;">
+                Cada código é único e utilizável apenas uma vez. Não vincule os códigos aos nomes ou matrículas dos alunos.
+              </p>
+              <div style="background: var(--slate-50); border: 1px solid var(--slate-200); padding: 1rem; border-radius: var(--radius-md); font-family: monospace; font-size: 0.9rem;">
+                ESC-2026-A8K2 • ESC-2026-F9M1 • ESC-2026-P3X7 • ESC-2026-Y4W9 • ESC-2026-L7Q5
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <script>
+    function switchDashboardView(viewId, el) {
+      document.querySelectorAll('.dash-view').forEach(v => v.style.display = 'none');
+      document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+
+      const target = document.getElementById(`view-${viewId}`);
+      if (target) target.style.display = 'block';
+      el.classList.add('active');
+    }
+  </script>
+</body>
+</html>
